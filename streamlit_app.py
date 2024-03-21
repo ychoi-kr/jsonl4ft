@@ -6,7 +6,7 @@ import os
 def load_data(file):
     file_type = file.name.split('.')[-1]
     separator = ',' if file_type == 'csv' else '\t' if file_type == 'tsv' else None
-    return pd.read_csv(file, sep=separator, encoding='utf-8')
+    return pd.read_csv(file, sep=separator, encoding='utf-8', quotechar='"')
 
 def convert_to_jsonl(df, format_choice, system_prompt=""):
     if format_choice == "conversational single-turn chat":
